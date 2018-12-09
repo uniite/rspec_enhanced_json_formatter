@@ -12,3 +12,18 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+# See also: https://github.com/rspec/rspec-core/blob/v3.8.0/spec/support/formatter_support.rb
+def run_example_specs_with_formatter(formatter)
+  cmd = [
+    'rspec',
+    '--format', formatter, '--order', 'defined',
+    'spec/fixtures/example_spec_.rb'
+  ]
+
+  IO.popen(cmd).read
+end
+
+def parse_json_lines(text)
+  text.split("\n").map { |l| JSON.parse(l) }
+end

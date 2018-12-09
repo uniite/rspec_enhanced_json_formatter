@@ -1,4 +1,4 @@
-# RspecEnhancedJsonFormatter
+# RSpecEnhancedJSONFormatter
 
 Enhanced JSON formatter for RSpec
 
@@ -20,6 +20,15 @@ Or install it yourself as:
 
 ## Usage
 
+Add it to your `Gemfile`:
+
+```ruby
+group :test
+  gem 'rspec_enhanced_json_formatter'
+end
+```
+
+Use it with rspec:
 ```sh
 rspec -fRSpecEnhancedJSONFormatter
 ```
