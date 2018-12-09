@@ -1,9 +1,16 @@
----
 sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - 2.4.5
-  - 2.5.3
-  - 2.6.0-rc1
+- 2.4.5
+- 2.5.3
+- 2.6.0-rc1
 before_install: gem install bundler -v 1.17.1
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Ya3q1Xro3I/XPPmDktCNv7HIsEnr89D9pAPOT3hGtWBpQDFwEj3ANMICAk2o3VGF1iRQFKrt1LKx4NSY3qyB84+inIvKuG8jQIhk/axuMhvlDdqAy2vddtI0PSghQaMXLS84sx+uiViod9fUKfNzQYrlV3cZliaLS17XwV7BaWzj1TZT+tCaOKZfqmKKB1lksZWyNILUI7PBWTnJl+jtganwuZlxYJ3xvItHg+9WK5aOkNqTx9X8X4j0WggkMsF9da6ao7oyjmamkg5pQTgAkZ93DPF7EHkfjzLd66/GYnFNKlIr2Z5YmSunVqajg4ci2m8xYU5KvfppIbqnfbQknkc1VmnlU/tNu8eHwW7fM25baovxnn7M0YxjQx4IdSgeaUs94XhgTHG8yw+Oq2FtozmqINlEaU2uz9la+cG7z1kyQ2PlANeuOWczdF5Y4ANcfzITeJwAyC88RalxbgTSTd3tft1v3J2V7DZE2UzR24pnZQsQ7uETtPcsC6oe+fAVNbMxlWaCsr9Y20x2YS1XK8/fTJD2nfT5v1DXGNuK8KHeEI87kE7QVh3kXAfNNxUuX6JWFd2379FGRjL+KuIT2XpSRRXH94b07SP3BFk02PYdNqs0ohrTxxSQKM4BBJDNG2kroT0FsBgmGw95/IU0u94T1Q4uZ581n3khYu6WqH8=
+  gem: rspec_enhanced_json_formatter
+  on:
+    tags: true
+    repo: uniite/rspec_enhanced_json_formatter
