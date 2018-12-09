@@ -1,16 +1,22 @@
 sudo: false
 language: ruby
-cache: bundler
-rvm:
-- 2.4.5
-- 2.5.3
-- 2.6.0-rc1
-before_install: gem install bundler -v 1.17.1
-deploy:
-  provider: rubygems
-  api_key:
-    secure: Ya3q1Xro3I/XPPmDktCNv7HIsEnr89D9pAPOT3hGtWBpQDFwEj3ANMICAk2o3VGF1iRQFKrt1LKx4NSY3qyB84+inIvKuG8jQIhk/axuMhvlDdqAy2vddtI0PSghQaMXLS84sx+uiViod9fUKfNzQYrlV3cZliaLS17XwV7BaWzj1TZT+tCaOKZfqmKKB1lksZWyNILUI7PBWTnJl+jtganwuZlxYJ3xvItHg+9WK5aOkNqTx9X8X4j0WggkMsF9da6ao7oyjmamkg5pQTgAkZ93DPF7EHkfjzLd66/GYnFNKlIr2Z5YmSunVqajg4ci2m8xYU5KvfppIbqnfbQknkc1VmnlU/tNu8eHwW7fM25baovxnn7M0YxjQx4IdSgeaUs94XhgTHG8yw+Oq2FtozmqINlEaU2uz9la+cG7z1kyQ2PlANeuOWczdF5Y4ANcfzITeJwAyC88RalxbgTSTd3tft1v3J2V7DZE2UzR24pnZQsQ7uETtPcsC6oe+fAVNbMxlWaCsr9Y20x2YS1XK8/fTJD2nfT5v1DXGNuK8KHeEI87kE7QVh3kXAfNNxUuX6JWFd2379FGRjL+KuIT2XpSRRXH94b07SP3BFk02PYdNqs0ohrTxxSQKM4BBJDNG2kroT0FsBgmGw95/IU0u94T1Q4uZ581n3khYu6WqH8=
-  gem: rspec_enhanced_json_formatter
-  on:
-    tags: true
-    repo: uniite/rspec_enhanced_json_formatter
+
+jobs:
+  include:
+    - stage: test
+      before_install: gem install bundler -v 1.17.1
+      cache: bundler
+      rvm:
+        - 2.4.5
+        - 2.5.3
+        - 2.6.0-rc1
+    - stage: deploy
+      script: skip
+      deploy:
+        provider: rubygems
+        api_key:
+          secure: ozMw8a713u/kREb+iq2/Qd8gtkuevm1MGyev4N2yQrTdjZN3DRZAnOg2Tv4eVk+tU8UDndPzPowdmkgnByEE3FWn3uumLwsrQRI2BYN5ahnMPOJRRZupnnK4L6nstt61u3ZnqIOERzphkI1WskIk2v0VJZjPk4MKzwkt1dExJNVXV17YUGaM1MWqdopvY2jXuGTgE4i28KP5VKx3D8tNXe/XcQQ7S0/jM+ypaHIh5/QDWajpey4SVTK64QEsHRnB/PCn5iJqxa4M2KHnxtsHBAswqJFhGD9AFa3603ya15kruNkWgCsyPX9mDDAeBGb4jMjNAykivbbeyi0uhVBQ61ZeCzb66wc1j+EHPO2XTi0FzO2B/trDqZJxZsSMzRCvapPC+32yUU11u1Ucki3hPB0D+XZA50UmZDA2xO0yiXYFMTtXXHkSZoRMVvXl8EYo8ZZwxvewG41RwZO+iDNVtBzHXmJ/2x/+Bwry/Ko4z+YURIswWqCWnB77qkMz4YxIBcHA3T4PKVJp3PNvQl363xDUM2ezH218A9RqWoGsp7X5zYSDzVI9QFp8sJarNrlZaGDaQiH6/0c1jrwD9VylzMfziZvhHUdZnqtD1wV3JcmQJrbJYWflD7dfjxpi9x1G+0NmaS2GxKucGViqz8TDNY6ZY1xaY9mtRUmWlvX1mrw=
+        gem: rspec_enhanced_json_formatter
+        on:
+          tags: true
+          repo: uniite/rspec_enhanced_json_formatter
