@@ -11,6 +11,7 @@ jobs:
         - 2.5.3
         - 2.6.0-rc1
     - stage: deploy
+      before_install: gem install bundler -v 1.17.1
       script: skip
       deploy:
         provider: rubygems
