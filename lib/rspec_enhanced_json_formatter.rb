@@ -42,7 +42,9 @@ class RSpecEnhancedJSONFormatter < RSpec::Core::Formatters::BaseFormatter
       id: example.id,
       name: example.full_description,
       duration: example.execution_result.run_time,
-      status: example.execution_result.status
+      status: example.execution_result.status,
+      path: example.metadata[:file_path],
+      line: example.metadata[:line_number],
     }
 
     if notification.respond_to?(:fully_formatted_lines)
