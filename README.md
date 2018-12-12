@@ -1,5 +1,7 @@
 # RSpecEnhancedJSONFormatter
 
+[![Build Status](https://travis-ci.com/uniite/rspec_enhanced_json_formatter.svg?branch=master)](https://travis-ci.com/uniite/rspec_enhanced_json_formatter)
+
 Enhanced JSON formatter for RSpec
 
 ## Installation
