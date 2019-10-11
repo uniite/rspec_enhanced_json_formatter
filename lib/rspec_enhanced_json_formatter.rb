@@ -49,7 +49,7 @@ class RSpecEnhancedJSONFormatter < RSpec::Core::Formatters::BaseFormatter
 
     if notification.respond_to?(:fully_formatted_lines)
       event[:error] = {
-        message: notification.fully_formatted_lines(nil).join("\n")
+        message: notification.fully_formatted_lines(nil).join("\n")[0..10_000]
       }
 
       exception = notification.exception
